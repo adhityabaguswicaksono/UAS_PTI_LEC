@@ -13,9 +13,9 @@
          display: flex;
          justify-content: center;
          align-items: center;
-         background-color: beige;
+         background-color: white;
          /*background-color: beige;*/
-         background-image: url('maps.jpg');
+         background-image: url('maps.png');
      }   
  
      .box {
@@ -30,12 +30,28 @@
          width: 10cm;
          height: 10cm;
          text-align: center;
-         padding-top: 3.5cm;
+         padding-top: 1cm;
          margin-right: 55px;
-         font-weight: 500;
+         text-size-adjust: 100px;
      }
  
      #maps {
          border: 5px solid;
          border-color: black;
+     }
+
+     .satu {
+         font-size: 72pt;
+         -webkit-text-stroke: 2pt;
+         -webkit-text-stroke-color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: black;
+     }
+     
+     .dua {
+        font-size: 52pt;
+         -webkit-text-stroke: 2pt;
+         -webkit-text-stroke-color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: black;
      }
