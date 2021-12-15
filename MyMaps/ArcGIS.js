@@ -18,9 +18,12 @@ require([
     "esri/widgets/ScaleBar",
     "esri/widgets/Sketch",
     "esri/layers/GraphicsLayer",
-    "esri/geometry/geometryEngine"
+    "esri/geometry/geometryEngine",
+    "esri/widgets/Compass",
 
-  ], function(esriConfig, Map, MapView, Search, Locate, Track, Graphic, BasemapToggle, BasemapGallery, route, RouteParameters, FeatureSet, ScaleBar, Sketch, GraphicsLayer, geometryEngine) {
+    "esri/rest/locator"
+
+  ], function(esriConfig, Map, MapView, Search, Locate, Track, Graphic, BasemapToggle, BasemapGallery, route, RouteParameters, FeatureSet, ScaleBar, Sketch, GraphicsLayer, geometryEngine, Compass, locator) {
 
   esriConfig.apiKey = "AAPKeaa8a0a53d6245f09816f87f8d7400caWne7Wo5c2O89xVAiu6w1dEdiWYp-rwGQv7n-h9ErjafyCKIihetfqxmStRO5vz7U";
 
@@ -78,6 +81,7 @@ require([
   });
     view.ui.add(basemapToggle,"bottom-right");
 
+    /* Route Link */
     const routeUrl = "https://route-api.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World";
 
     view.on("click", function(event){
@@ -88,7 +92,8 @@ require([
         getRoute(); // Call the route service
       } else {
         view.graphics.removeAll();
-        addGraphic("origin",event.mapPoint);
+        view.ui.empty("bottom-left");
+        //addGraphic("origin",event.mapPoint);
       }
     });
 
@@ -135,8 +140,8 @@ require([
           direction.innerHTML = result.attributes.text + " (" + result.attributes.length.toFixed(2) + " miles)";
           directions.appendChild(direction);
         });
-        view.ui.empty("top-right");
-        view.ui.add(directions, "top-right");
+        view.ui.empty("bottom-left");
+        view.ui.add(directions, "bottom-left");
       }
     })
     .catch(function(error){
@@ -222,4 +227,39 @@ require([
         switchType(geometry);
       }
     });
-  });
+
+    /* Compass */
+      let compass = new Compass({
+        view: view
+      });
+      
+      // adds the compass to the top left corner of the MapView
+      view.ui.add(compass, "top-left");
+
+      /*  */
+      const serviceUrl = "http://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer";
+
+  view.on("hold", function(evt){
+      const params = {
+        location: evt.mapPoint
+      };
+
+     locator.locationToAddress(serviceUrl, params)
+        .then(function(response) { // Show the address found
+          const address = response.address;
+          showAddress(address, evt.mapPoint);
+        }, function(err) { // Show no address found
+          showAddress("No address found.", evt.mapPoint);
+        });
+
+    });
+
+  function showAddress(address, pt) {
+    view.popup.open({
+      title:  address,
+      content: + Math.round(pt.longitude * 100000)/100000 + ", " + Math.round(pt.latitude * 100000)/100000,
+      location: pt
+    });
+  }
+
+});
