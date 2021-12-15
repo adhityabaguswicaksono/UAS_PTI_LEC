@@ -43,7 +43,7 @@
      .satu {
          font-size: 72pt;
          -webkit-text-stroke: 2pt;
-         -webkit-text-stroke-color: white;
+         -webkit-text-stroke-color: goldenrod;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: black;
      }
@@ -51,7 +51,7 @@
      .dua {
         font-size: 52pt;
          -webkit-text-stroke: 2pt;
-         -webkit-text-stroke-color: white;
+         -webkit-text-stroke-color: goldenrod;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         color: black;
      }
