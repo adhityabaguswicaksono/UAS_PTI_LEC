@@ -1,0 +1,30 @@
+*{
+   border: 1px;
+   padding: 0px;
+   margin: 0px;
+}
+    html,
+    body {
+        height: 100%;
+    }
+
+    .other-container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: beige;
+    }
+
+    .box {
+        background-color: white;
+        border-radius: 25px;
+    }
+
+    footer{
+        padding: 10px;
+    }
+    nav {
+        background-color:beige;
+        padding: 0px;
+    }
