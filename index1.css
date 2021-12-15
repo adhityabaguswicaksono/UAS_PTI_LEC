@@ -13,8 +13,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: beige;
-    }
+        /*background-color: beige;*/
+        background-image: url('maps.jpg');
+    }   
 
     .box {
         background-color: white;
@@ -27,4 +28,20 @@
     nav {
         background-color:beige;
         padding: 0px;
+    }
+    #tulisan {
+        /*border: 5px solid; 
+        border-color:  black;*/
+        border-radius: 1cm;
+        width: 10cm;
+        height: 10cm;
+        text-align: center;
+        padding-top: 3.5cm;
+        margin-right: 55px;
+        font-weight: 500;
+    }
+
+    #maps {
+        border: 5px solid;
+        border-color: black;
     }
