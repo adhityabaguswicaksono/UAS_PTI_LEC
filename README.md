@@ -1,5 +1,5 @@
-# UAS_PTI_LEC
-Keperluan UAS PTI Lecture
+# UAS_PTI
+Pengerjaan UAS PTI
 
 Sumber Data API:
 https://developers.arcgis.com/ JavaScript version

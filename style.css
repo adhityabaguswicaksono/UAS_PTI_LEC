@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'DM Sans';
+}
+
+.home-div {
+    background-image: url("./assets/Background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding-top: 175px;
+    padding-bottom: 175px;
+    background-attachment: fixed;
+}
+
+.content-div-blue {
+    background-color: #005FCE;
+    color: white;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.content-div-white {
+    background-color: white;
+    color: #005FCE;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    background-attachment: fixed;
+}
+
+footer {
+    color: white;
+    background-color: #005FCE;
+    padding: 15px;
+}
